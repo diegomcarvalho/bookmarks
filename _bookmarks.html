@@ -1,0 +1,242 @@
+<div class="bookmark-hero">
+    <img
+        src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/bae98eef-e3f5-4432-b384-eddbd49c4303.png"
+        alt="Bookmarks page banner"
+        class="bookmark-hero__image"
+    />
+</div>
+
+<div class="bookmark-tabs" data-bookmark-tabs>
+    <div
+        class="bookmark-tablist"
+        role="tablist"
+        aria-label="Bookmark categories"
+    >
+        <button
+            class="bookmark-tab is-active"
+            role="tab"
+            aria-selected="true"
+            data-tab-target="news"
+        >
+            News
+        </button>
+        <button
+            class="bookmark-tab"
+            role="tab"
+            aria-selected="false"
+            data-tab-target="technology"
+        >
+            Technology
+        </button>
+        <button
+            class="bookmark-tab"
+            role="tab"
+            aria-selected="false"
+            data-tab-target="programming"
+        >
+            Programming Tools
+        </button>
+        <button
+            class="bookmark-tab"
+            role="tab"
+            aria-selected="false"
+            data-tab-target="work"
+        >
+            Work
+        </button>
+    </div>
+
+    <section
+        class="bookmark-panel is-active"
+        role="tabpanel"
+        data-tab-panel="news"
+    >
+        <div class="bookmark-card">
+            <h3>News</h3>
+            <ul>
+                <li>
+                    <a
+                        href="https://www.nytimes.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >The New York Times</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="https://www.lemonde.fr"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Le Monde</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="https://www.folha.uol.com.br"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Folha</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="https://oglobo.globo.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >O Globo</a
+                    >
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section
+        class="bookmark-panel"
+        role="tabpanel"
+        hidden
+        data-tab-panel="technology"
+    >
+        <div class="bookmark-card">
+            <h3>Technology</h3>
+            <ul>
+                <li>
+                    <a
+                        href="http://www.makeuseof.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >MakeUseOf</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="https://slashdot.org/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Slashdot</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="https://gizmodo.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Gizmodo</a
+                    >
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section
+        class="bookmark-panel"
+        role="tabpanel"
+        hidden
+        data-tab-panel="programming"
+    >
+        <div class="bookmark-card">
+            <h3>Programming Tools</h3>
+            <ul>
+                <li>
+                    <a
+                        href="https://en.cppreference.com/w/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >cppreference</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="https://www.modernescpp.com/index.php"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Modernes C++</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="https://carbon.now.sh/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Carbon</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="https://python-graph-gallery.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Python Graph Gallery</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="https://godbolt.org/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Compiler Explorer</a
+                    >
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section
+        class="bookmark-panel"
+        role="tabpanel"
+        hidden
+        data-tab-panel="work"
+    >
+        <div class="bookmark-card">
+            <h3>Work</h3>
+            <ul>
+                <li>
+                    <a
+                        href="https://suap.cefet-rj.br/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >SUAP CEFET/RJ</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="https://sippag-web.cefet-rj.br/portarias"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >SIPPAG Web Portarias</a
+                    >
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>
+
+<script>
+    (function () {
+        const root = document.querySelector("[data-bookmark-tabs]");
+        if (!root) return;
+
+        const tabs = root.querySelectorAll("[data-tab-target]");
+        const panels = root.querySelectorAll("[data-tab-panel]");
+
+        tabs.forEach((tab) => {
+            tab.addEventListener("click", () => {
+                const target = tab.getAttribute("data-tab-target");
+
+                tabs.forEach((t) => {
+                    t.classList.remove("is-active");
+                    t.setAttribute("aria-selected", "false");
+                });
+
+                panels.forEach((panel) => {
+                    const isMatch =
+                        panel.getAttribute("data-tab-panel") === target;
+                    panel.classList.toggle("is-active", isMatch);
+                    panel.hidden = !isMatch;
+                });
+
+                tab.classList.add("is-active");
+                tab.setAttribute("aria-selected", "true");
+            });
+        });
+    })();
+</script>
