@@ -62,4 +62,18 @@ format:
   </ul>
 </div>
 ```
+
+## Home
+
+```{=html}
+<div class="tab-content">
+  <h2 class="bookmark-group-title">Home</h2>
+  <ul class="bookmark-links">
+    <li><a class="bookmark-link" href="http://dietpi.tailc70dd3.ts.net/homer/" target="_blank" rel="noopener noreferrer"><span class="bookmark-link__name">Homer (VPN)</span><span class="bookmark-link__url">dietpi.tailc70dd3.ts.net</span></a></li>
+    <li><a class="bookmark-link" href="http://192.168.0.200/homer/" target="_blank" rel="noopener noreferrer"><span class="bookmark-link__name">Homer (Local)</span><span class="bookmark-link__url">192.168.0.200</span></a></li>
+    <li><a class="bookmark-link" href="http://192.168.0.200:3002/dashboard" target="_blank" rel="noopener noreferrer"><span class="bookmark-link__name">Kuma (Local)</span><span class="bookmark-link__url">192.168.0.200:3002/dashboard</span></a></li>
+  </ul>
+</div>
+```
+
 :::
